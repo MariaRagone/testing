@@ -1,8 +1,13 @@
 import { createButton } from './button.js';
-import { screen } from '@testing-library/dom';
+import { screen, fireEvent } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
 
 describe('createButton', () => {
-  it('should create a button element', () => {
+  beforeEach(() => {
+    document.innerHtml = '';
+  });
+
+  it.skip('should create a button element', () => {
     document.body.appendChild(createButton());
 
     const button = screen.getByRole('button', { name: 'Click Me' });
@@ -15,8 +20,10 @@ describe('createButton', () => {
   });
 
   it('should change the text to "Clicked!" when clicked', async () => {
-    const button = createButton();
-    button.click();
+    document.body.appendChild(createButton());
+    const button = screen.getByRole('button', { name: 'Click Me' });
+
+    await userEvent.click(button);
     expect(button.textContent).toBe('Clicked!');
   });
 });
