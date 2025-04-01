@@ -1,4 +1,9 @@
 export const add = (a, b) => {
+    if(typeof a === "string") a = Number(a);
+    if(typeof b === 'string') b = Number(b);
+    if(isNaN(a) || isNaN(b)) throw new Error('Please input numbers.');
+    
+
 return a + b;
 };
 
