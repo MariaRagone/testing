@@ -13,6 +13,14 @@ describe('subtract', () => {
     })
 });
 
-describe.todo('multiply', () => {});
+describe('multiply', () => {
+    it('should multiply two numbers', () => {
+        expect(multiply(3,5)).toBe(15)
+    })
+});
 
-describe.todo('divide', () => {});
+describe('divide', () => {
+    it('should divide two numbers', () => {
+        expect(divide(10,5)).toBe(2)
+    })
+});
